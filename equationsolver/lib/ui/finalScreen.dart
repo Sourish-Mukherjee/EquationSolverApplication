@@ -49,7 +49,7 @@ class _FinalScreenState extends State<FinalScreen> {
               Flexible(
                 flex: 2,
                 child: Container(
-                  padding: const EdgeInsets.only(left: 10, top: 15),
+                  padding: const EdgeInsets.only(left: 11, top: 15),
                   child: const Text(
                     "Result",
                     style: TextStyle(
