@@ -5,6 +5,8 @@ import 'package:equationsolver/ui/components/elevatedbutton.dart';
 import 'package:equationsolver/ui/finalScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:equationsolver/utils/equationextractor.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -28,14 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Center(
           child: MyElevatedButton(
             onPressed: () async {
-              final XFile? pickedFile =
-                  await _picker.pickImage(source: ImageSource.camera);
-              print(pickedFile);
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => FinalScreen(),
-                  ));
+              Parser p = Parser();
+              Expression exp = p.parse("1 + x^2");
+              //Expression exp = p.parse("(x^2 + cos(y)) / 3");
+              print(exp);
             },
             borderRadius: BorderRadius.circular(15),
             child: Text(
